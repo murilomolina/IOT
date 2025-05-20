@@ -1,0 +1,42 @@
+{
+  "navbar": {
+    "firstGroup": {
+      "title": "Sobre Nosotros",
+      "firstOption": "Sobre nossotros",
+      "secondOption": "Nuestro Equipo",
+      "thirdOption": "Parceiros"
+    },
+    "secondGroup": {
+      "title": "Edificios"
+    },
+    "thirdGroup": {
+      "title": "Galería"
+    },
+    "fourthGroup": {
+      "title": "Medios",
+      "firstOption": "Noticias",
+      "secondOption": "Videos"
+    },
+    "fifthGroup": {
+      "title": "Involúcrate",
+      "firstOption": "Conviértete en Patrocinador",
+      "secondOption": "Hazte Miembro"
+    },
+    "sixthGroup": {
+      "title": "Contacto"
+    }
+  },
+  "aboutGroup": {
+    "about": {
+      "title": "Quiénes Somos",
+      "mainText": "Somos una empresa especializada en consultoría y proyectos de ingeniería civil",
+      "firstLink": "¡Conoce la organización de nuestro equipo!",
+      "secondLink": "¡Aprende sobre nossotros!",
+      "thirdLink": "¡Conoce a nuestro equipo!"
+    },
+    "aboutUs": {
+      "title": "¿Qué és?",
+      "mainText": "Texto de Ejemplo"
+    }
+  }
+}

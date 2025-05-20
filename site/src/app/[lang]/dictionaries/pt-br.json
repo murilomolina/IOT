@@ -1,0 +1,42 @@
+{
+  "navbar": {
+    "firstGroup": {
+      "title": "Sobre Nós",
+      "firstOption": "Sobre nós",
+      "secondOption": "Nossa Equipe",
+      "thirdOption": "Parceiros"
+    },
+    "secondGroup": {
+      "title": "Edificações"
+    },
+    "thirdGroup": {
+      "title": "Galeria"
+    },
+    "fourthGroup": {
+      "title": "Mídia",
+      "firstOption": "Notícias",
+      "secondOption": "Vídeos"
+    },
+    "fifthGroup": {
+      "title": "Envolva-se",
+      "firstOption": "Torne-se um Patrocinador",
+      "secondOption": "Torne-se um Membro"
+    },
+    "sixthGroup": {
+      "title": "Contato"
+    }
+  },
+  "aboutGroup": {
+    "about": {
+      "title": "Quem Somos",
+      "mainText": "Somos uma empresa",
+      "firstLink": "Conheça a organização da nossa equipe!",
+      "secondLink": "Saiba mais sobre a nós!",
+      "thirdLink": "Conheça nossa equipe!"
+    },
+    "aboutUs": {
+      "title": "O que é?",
+      "mainText": "Texto de Exemplo"
+    }
+  }
+}

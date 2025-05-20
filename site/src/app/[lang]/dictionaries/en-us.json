@@ -1,0 +1,43 @@
+{
+  "navbar": {
+    "firstGroup": {
+      "title": "About Us",
+      "firstOption": "About us",
+      "secondOption": "Our Team",
+      "thirdOption": "Partners"
+    },
+    "secondGroup": {
+      "title": "Buildings"
+    },
+    "thirdGroup": {
+      "title": "Gallery"
+    },
+    "fourthGroup": {
+      "title": "Media",
+      "firstOption": "News",
+      "secondOption": "Videos"
+    },
+    "fifthGroup": {
+      "title": "Get Involved",
+      "firstOption": "Become a Sponsor",
+      "secondOption": "Become a Member"
+    },
+    "sixthGroup": {
+      "title": "Contact"
+    }
+  },
+  "aboutGroup": {
+    "about": {
+      "title": "Who We Are",
+      "mainText": "We are a company ",
+      "firstLink": "Get to know our team's organization!",
+      "secondLink": "Learn about us!",
+      "thirdLink": "Meet our team!"
+    },
+    "aboutUs": {
+      "title": "What is?",
+      "mainText": "Example Text"
+    }
+  }
+}
+
