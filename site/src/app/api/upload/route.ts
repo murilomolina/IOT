@@ -1,22 +1,36 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 
-export async function POST(req: Request) {
-  const formData = await req.formData();
-  const file = formData.get("file") as File;
+const API_SECRET = process.env.UPLOAD_API_KEY;
 
-  if (!file) {
-    return NextResponse.json({ error: "Nenhum arquivo recebido." }, { status: 400 });
+export async function POST(req: NextRequest) {
+  const authHeader = req.headers.get("authorization");
+
+  if (!authHeader || authHeader !== `Bearer ${API_SECRET}`) {
+    return NextResponse.json({ error: "Não autorizado." }, { status: 401 });
   }
 
-  const buffer = Buffer.from(await file.arrayBuffer());
-  const fileName = `esp_cam/photos/${Date.now()}_${file.name.replaceAll(" ", "_")}`;
+  const contentType = req.headers.get("content-type") || "";
+  if (!contentType.includes("multipart/form-data")) {
+    return NextResponse.json({ error: "Tipo de conteúdo inválido." }, { status: 400 });
+  }
 
   try {
+    const formData = await req.formData();
+    const file = formData.get("file") as File;
+
+    if (!file || typeof file !== "object") {
+      return NextResponse.json({ error: "Nenhum arquivo enviado." }, { status: 400 });
+    }
+
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const fileName = `esp_cam/photos/${Date.now()}_${file.name.replaceAll(" ", "_")}`;
+
     const blob = await put(fileName, buffer, { access: "public" });
+
     return NextResponse.json({ url: blob.url }, { status: 201 });
   } catch (err) {
-    console.error("Erro ao salvar no Vercel Blob:", err);
-    return NextResponse.json({ error: "Falha no upload." }, { status: 500 });
+    console.error("Erro ao processar o upload:", err);
+    return NextResponse.json({ error: "Erro interno no servidor." }, { status: 500 });
   }
 }
