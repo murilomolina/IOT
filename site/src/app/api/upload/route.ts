@@ -30,10 +30,23 @@ export async function POST(req: NextRequest) {
     try {
         const nodeReq = readableWebToNodeReadable(req.body! as ReadableStream<Uint8Array>) as IncomingMessage;
 
+        // Set a dummy content-length header to avoid formidable error
+        const headers: Record<string, string> = {};
+        req.headers.forEach((value, key) => {
+            headers[key.toLowerCase()] = value;
+        });
+        headers['content-length'] = req.headers.get('content-length') || '0';
+        Object.defineProperty(nodeReq, 'headers', {
+            value: headers,
+            writable: true,
+            configurable: true,
+            enumerable: true,
+        });
+
         const form = formidable({ multiples: false });
 
         const { files }: { files: Files } = await new Promise((resolve, reject) => {
-            form.parse(nodeReq, (err, fields, files) => {
+            form.parse(nodeReq, (err, _fields, files) => {
                 if (err) reject(err);
                 else resolve({ files });
             });
