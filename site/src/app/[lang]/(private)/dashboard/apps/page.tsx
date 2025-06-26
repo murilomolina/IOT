@@ -24,11 +24,11 @@ export default async function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {/* Card 1 */}
             <Link
-              href="/dashboard/apps/calculo-inclinacao"
+              href="/dashboard/apps/cam"
               className="group flex flex-col items-center justify-between bg-gradient-to-tl from-blue-400 to-blue-700 text-white rounded-xl shadow-lg hover:scale-105 transition-all p-4 sm:p-6 space-y-3 sm:space-y-4 backdrop-blur-md"
             >
-              <Image className="object-contain h-16 sm:h-24" src='/assets/images/logo.png' alt="APP" width={100} height={100} />
-              <h2 className="text-md sm:text-lg font-semibold tracking-wide text-white">App1</h2>
+              <Image className="object-contain h-16 sm:h-24" src='/assets/images/logo.png' alt="Cam" width={100} height={100} />
+              <h2 className="text-md sm:text-lg font-semibold tracking-wide text-white">Cam</h2>
             </Link>
 
             {/* Card 2 */}
