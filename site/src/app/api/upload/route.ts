@@ -10,7 +10,7 @@ export async function POST(req: Request) {
   }
 
   const buffer = Buffer.from(await file.arrayBuffer());
-  const fileName = `${Date.now()}_${file.name.replaceAll(" ", "_")}`;
+  const fileName = `esp_cam/photos/${Date.now()}_${file.name.replaceAll(" ", "_")}`;
 
   try {
     const blob = await put(fileName, buffer, { access: "public" });
