@@ -21,7 +21,7 @@ export default async function PhotosPage() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-4">Fotos da ESP32-CAM</h1>
+      <h1 className="text-2xl font-semibold mb-4">Fotos da ESP32-CAM (atualizadas a cada 2 segundos)</h1>
       <LivePhotoGrid initialImages={sorted} />
     </div>
   );
