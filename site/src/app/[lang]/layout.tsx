@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Empresa",
-  description: "Empresa descrição",
+  title: "IOT Projects",
+  description: "IOT Projects Dashboard",
 };
 
 export default function RootLayout({

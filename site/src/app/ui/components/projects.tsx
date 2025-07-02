@@ -35,8 +35,12 @@ const Projects = () => {
   return (
     <section id="projetos" className="py-16 px-6 md:px-16 bg-gray-900 text-white relative">
       <div className="max-w-screen-xl mx-auto text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Nossos Projetos</h2>
-        <p className="text-lg sm:text-xl text-gray-300">Confira alguns dos nossos projetos mais recentes e incríveis.</p>
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+          <span className="inline-block animate-gradient-x">Projetos</span>
+        </h2>
+        <p className="text-lg sm:text-xl text-gray-300">
+          Confira meus projetos mais recentes, incluindo os mais impressionantes já realizados e novidades que ainda estão em desenvolvimento.
+        </p>
       </div>
 
       {/* Swiper Carrossel */}

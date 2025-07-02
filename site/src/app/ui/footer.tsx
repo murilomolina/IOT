@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Logo or Brand Name */}
         <div className="flex items-center gap-4">
           <Image
-            src="/assets/images/logo.png" 
+            src="/assets/images/logo.svg" 
             alt="Logo"
             width={100}
             height={100}
@@ -43,7 +43,8 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="text-center text-gray-400 mt-8">
-        <p>&copy; {new Date().getFullYear()}  Empresa. Todos os direitos reservados.</p>
+        <p>&copy; {new Date().getFullYear()}  Todos os direitos reservados.</p>
+        <p>developed by <Link href={'https://github.com/murilomolina'}>Murilo Molina Barone</Link></p>
       </div>
     </footer>
   );

@@ -33,7 +33,7 @@ export default async function Page() {
         <div className="mb-6">
           <Image
             className="shadow-lg"
-            src="/assets/images/logo.png"
+            src="/assets/images/logo.svg"
             alt="Logo"
             width={100}
             height={100}

@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 
-const AboutUs = () => {
+const MainProjects = () => {
   return (
     <>
       {/* First Section */}
-      <section id='about' className="about-us py-20 px-6 md:px-16 bg-gray-900 text-white">
+      <section id='main-projects' className="about-us py-20 px-6 md:px-16 bg-gray-900 text-white">
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
           
           {/* Image Section */}
@@ -23,15 +23,15 @@ const AboutUs = () => {
           {/* Text Section */}
           <div className="w-full md:w-1/2 text-center md:text-left space-y-8">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Sobre nós - Parte 1
+              Projeto 1
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
-              Somos uma equipe dedicada à excelência em cada projeto. Nosso compromisso é trazer soluções inovadoras e personalizadas, criando espaços que não só atendem às expectativas, mas as superam.
+              Este projeto de IoT conecta dispositivos inteligentes para monitoramento e automação em tempo real, proporcionando maior eficiência, segurança e controle remoto através de uma plataforma intuitiva e escalável.
             </p>
 
             {/* Button */}
             <a href="#projetos" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full text-md font-semibold hover:bg-blue-500 transition-all duration-300 transform hover:scale-105">
-              Conheça nossos Projetos
+              Saiba Mais
             </a>
           </div>
         </div>
@@ -44,15 +44,15 @@ const AboutUs = () => {
           {/* Text Section */}
           <div className="w-full md:w-1/2 text-center md:text-left space-y-8">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Sobre nós - Parte 2
+              Projeto 2
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
-              Nossa missão é oferecer resultados de alta qualidade, com atenção aos detalhes, e sempre respeitando os prazos e orçamentos. Trabalhamos com paixão para entregar o melhor em cada projeto.
+              Este projeto de IoT conecta dispositivos inteligentes para monitoramento e automação em tempo real, proporcionando maior eficiência, segurança e controle remoto através de uma plataforma intuitiva e escalável.
             </p>
 
             {/* Button */}
             <a href="#projetos" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full text-md font-semibold hover:bg-blue-500 transition-all duration-300 transform hover:scale-105">
-              Conheça nossa Equipe
+              Saiba Mais
             </a>
           </div>
 
@@ -74,4 +74,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default MainProjects;

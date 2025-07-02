@@ -59,7 +59,7 @@ export default function ImageCarousel({ projects }: { projects: Project[] }) {
               <div className="absolute inset-0 flex flex-col justify-center text-center text-white p-6 md:p-12 z-10">
                 <div className={`bg-black/50 p-6 md:p-10 rounded-3xl shadow-lg max-w-xl ${isMobile ? 'text-sm' : 'text-lg'}` }>
                   <h1 className={`font-extrabold mb-4 ${isMobile ? 'text-lg' : 'text-3xl md:text-5xl'}`}>
-                    {isMobile ? 'Empresa' : currentProject.title}
+                    {isMobile ? 'IOT Projects' : currentProject.title}
                   </h1>
                   <p className={`mb-6 font-light ${isMobile ? 'text-xs' : 'text-lg md:text-2xl'}`}>
                     {isMobile ? 'Conheça mais sobre nossos projetos e localizações.' : currentProject.description}

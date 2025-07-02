@@ -20,8 +20,11 @@ export default async function PhotosPage() {
     });
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-4">Fotos da ESP32-CAM (atualizadas a cada 2 segundos)</h1>
+    <div className="p-6  items-center">
+      <h1 className="text-2xl text-center font-semibold mb-4">Fotos da ESP32-CAM (atualizadas a cada 5 minutos)</h1>
+      <h4 className="text-sm italic text-center mb-8">
+        As fotos são tiradas e salvas no Blob a cada segundo, portanto basta atualizar a página quando quiser!
+      </h4>
       <LivePhotoGrid initialImages={sorted} />
     </div>
   );

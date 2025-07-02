@@ -1,6 +1,6 @@
 'use server'
 import ImageCarousel from "@/ui/components/image-carousel";
-import AboutUs from "../../../ui/components/about-us";
+import MainProjects from "../../../ui/components/main-projects";
 import Footer from "@/app/ui/footer";
 import Projects from "@/app/ui/components/projects";
 import getExposedPictures from "../../../../../public/assets/images/exposedPictures";
@@ -19,8 +19,8 @@ export default async function Home() {
         </section>
 
         {/* About Us Section */}
-        <section id="#about">
-          <AboutUs />
+        <section id="#main-projects">
+          <MainProjects />
         </section>
 
         {/* Projects */}

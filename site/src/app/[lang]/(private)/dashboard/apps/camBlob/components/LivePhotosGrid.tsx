@@ -35,7 +35,7 @@ export default function LivePhotoGrid({ initialImages }: { initialImages: BlobFi
   };
 
   useEffect(() => {
-    const interval = setInterval(fetchImages, 1000); // a cada 1s
+    const interval = setInterval(fetchImages, 300000); // Atualiza a cada 5 minutos
     return () => clearInterval(interval);
   }, []);
 

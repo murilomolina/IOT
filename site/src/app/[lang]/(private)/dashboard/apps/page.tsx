@@ -24,20 +24,20 @@ export default async function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {/* Card 1 */}
             <Link
-              href="/dashboard/apps/cam"
+              href="/dashboard/apps/camBlob"
               className="group flex flex-col items-center justify-between bg-gradient-to-tl from-blue-400 to-blue-700 text-white rounded-xl shadow-lg hover:scale-105 transition-all p-4 sm:p-6 space-y-3 sm:space-y-4 backdrop-blur-md"
             >
-              <Image className="object-contain h-16 sm:h-24" src='/assets/images/logo.png' alt="Cam" width={100} height={100} />
-              <h2 className="text-md sm:text-lg font-semibold tracking-wide text-white">Cam</h2>
+              <Image className="object-contain h-16 sm:h-24" src='/assets/images/logo.svg' alt="Cam" width={100} height={100} />
+              <h2 className="text-md sm:text-lg font-semibold tracking-wide text-white">Blob_cam</h2>
             </Link>
 
             {/* Card 2 */}
             <Link
-              href="/dashboard/apps/procuracao"
+              href="/dashboard/apps/camLive"
               className="group flex flex-col items-center justify-between bg-gradient-to-tl from-indigo-400 to-indigo-700 text-white rounded-xl shadow-lg hover:scale-105 transition-all p-4 sm:p-6 space-y-3 sm:space-y-4 backdrop-blur-md"
             >
-              <Image className="object-contain h-16 sm:h-24" src='/assets/images/logo.png' alt="APP" width={100} height={100} />
-              <h2 className="text-md sm:text-lg font-semibold tracking-wide text-white">App2</h2>
+              <Image className="object-contain h-16 sm:h-24" src='/assets/images/logo.svg' alt="APP" width={100} height={100} />
+              <h2 className="text-md sm:text-lg font-semibold tracking-wide text-white">Live_cam</h2>
             </Link>
 
             {/* Card 3 */}
@@ -45,7 +45,7 @@ export default async function Page() {
               href="/dashboard/apps/bf"
               className="group flex flex-col items-center justify-between bg-gradient-to-tl from-blue-600 to-green-800 text-white rounded-xl shadow-lg hover:scale-105 transition-all p-4 sm:p-6 space-y-3 sm:space-y-4 backdrop-blur-md"
             >
-              <Image className="object-contain h-16 sm:h-24" src='/assets/images/logo.png' alt="APP" width={100} height={100} />
+              <Image className="object-contain h-16 sm:h-24" src='/assets/images/logo.svg' alt="APP" width={100} height={100} />
               <h2 className="text-md sm:text-lg font-semibold tracking-wide text-white">App3</h2>
             </Link>
 
@@ -54,7 +54,7 @@ export default async function Page() {
               href="/dashboard/apps/doc-bf-eiv"
               className="group flex flex-col items-center justify-between bg-gradient-to-tl from-green-700 to-blue-800 text-white rounded-xl shadow-lg hover:scale-105 transition-all p-4 sm:p-6 space-y-3 sm:space-y-4 backdrop-blur-md"
             >
-              <Image className="object-contain h-16 sm:h-24" src='/assets/images/logo.png' alt="APP" width={100} height={100} />
+              <Image className="object-contain h-16 sm:h-24" src='/assets/images/logo.svg' alt="APP" width={100} height={100} />
               <h2 className="text-md sm:text-lg font-semibold tracking-wide text-white">App4</h2>
             </Link>
           </div>
