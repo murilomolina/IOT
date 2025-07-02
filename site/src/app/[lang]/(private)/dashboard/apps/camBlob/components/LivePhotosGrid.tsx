@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type BlobFile = {
   url: string;
@@ -46,10 +47,17 @@ export default function LivePhotoGrid({ initialImages }: { initialImages: BlobFi
         const label = timestamp ? new Date(timestamp).toLocaleString() : "Data desconhecida";
 
         return (
-          <div key={img.url} className="border rounded shadow">
-            <img src={img.url} alt="Foto da ESP32-CAM" className="w-full object-cover" />
-            <p className="text-xs text-center p-1">{label}</p>
-          </div>
+              <div key={img.url} className="border rounded shadow">
+              <Image
+                src={img.url}
+                alt="Foto da ESP32-CAM"
+                width={400}
+                height={300}
+                className="w-full object-cover"
+                style={{ width: "100%", height: "auto" }}
+              />
+              <p className="text-xs text-center p-1">{label}</p>
+              </div>
         );
       })}
     </div>
