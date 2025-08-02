@@ -1,13 +1,15 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'blocks.astratic.com', // apenas para a imagem de exemplo
-        // hostname: 'asdasdasdada.public.blob.vercel-storage.com',
+        hostname: 'blocks.astratic.com',
+      },
+      {
+        protocol: 'https',
+        hostname: `${process.env.BLOB_KEY}.public.blob.vercel-storage.com`,
       },
     ],
   },
