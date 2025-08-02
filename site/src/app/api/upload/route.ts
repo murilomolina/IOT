@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { supabase } from "@/app/lib/supabaseClient";
 import { put } from "@vercel/blob";
 
 const API_SECRET = process.env.UPLOAD_API_KEY;
@@ -27,6 +28,17 @@ export async function POST(req: NextRequest) {
     const fileName = `esp_cam/photos/${Date.now()}_${file.name.replaceAll(" ", "_")}`;
 
     const blob = await put(fileName, buffer, { access: "public" });
+
+    // para salvar os metadados no Supabase "cache"
+    const { error: dbError } = await supabase.from('blobs').insert({
+      pathname: fileName,
+      url: blob.url,
+      timestamp: Date.now()
+    });
+
+    if (dbError) {
+      console.error("Erro ao salvar metadados no Supabase:", dbError);
+    }
 
     return NextResponse.json({ url: blob.url }, { status: 201 });
   } catch (err) {

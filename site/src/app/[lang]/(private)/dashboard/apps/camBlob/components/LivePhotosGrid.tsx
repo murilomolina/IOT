@@ -1,7 +1,73 @@
+// 'use client';
+
+// import { useEffect, useState } from "react";
+// import Image from "next/image";
+
+// type BlobFile = {
+//   url: string;
+//   pathname: string;
+// };
+
+// function extractTimestamp(pathname: string): number | null {
+//   const match = pathname.match(/photos\/(\d+)_/);
+//   return match ? parseInt(match[1]) : null;
+// }
+
+// export default function LivePhotoGrid({ initialImages }: { initialImages: BlobFile[] }) {
+//   const [images, setImages] = useState<BlobFile[]>(initialImages);
+
+//   const fetchImages = async () => {
+//     try {
+//       const res = await fetch("/api/blob-list");
+//       const data = await res.json();
+
+//       const sorted = data.blobs
+//         .filter((b: BlobFile) => b.pathname.startsWith("esp_cam/photos/"))
+//         .sort((a: BlobFile, b: BlobFile) => {
+//           const t1 = extractTimestamp(b.pathname) || 0;
+//           const t2 = extractTimestamp(a.pathname) || 0;
+//           return t1 - t2;
+//         });
+
+//       setImages(sorted);
+//     } catch (e) {
+//       console.error("Erro ao buscar imagens:", e);
+//     }
+//   };
+
+//   useEffect(() => {
+//     const interval = setInterval(fetchImages, 300000); // Atualiza a cada 5 minutos
+//     return () => clearInterval(interval);
+//   }, []);
+
+//   return (
+//     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+//       {images.map((img) => {
+//         const timestamp = extractTimestamp(img.pathname);
+//         const label = timestamp ? new Date(timestamp).toLocaleString() : "Data desconhecida";
+
+//         return (
+//               <div key={img.url} className="border rounded shadow">
+//               <Image
+//                 src={img.url}
+//                 alt="Foto da ESP32-CAM"
+//                 width={400}
+//                 height={300}
+//                 className="w-full object-cover"
+//                 style={{ width: "100%", height: "auto" }}
+//               />
+//               <p className="text-xs text-center p-1">{label}</p>
+//               </div>
+//         );
+//       })}
+//     </div>
+//   );
+// }
+
 'use client';
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 type BlobFile = {
   url: string;
@@ -24,9 +90,9 @@ export default function LivePhotoGrid({ initialImages }: { initialImages: BlobFi
       const sorted = data.blobs
         .filter((b: BlobFile) => b.pathname.startsWith("esp_cam/photos/"))
         .sort((a: BlobFile, b: BlobFile) => {
-          const t1 = extractTimestamp(b.pathname) || 0;
-          const t2 = extractTimestamp(a.pathname) || 0;
-          return t1 - t2;
+          const t1 = extractTimestamp(a.pathname) || 0;
+          const t2 = extractTimestamp(b.pathname) || 0;
+          return t2 - t1; // do mais novo para o mais antigo
         });
 
       setImages(sorted);
@@ -36,7 +102,8 @@ export default function LivePhotoGrid({ initialImages }: { initialImages: BlobFi
   };
 
   useEffect(() => {
-    const interval = setInterval(fetchImages, 300000); // Atualiza a cada 5 minutos
+    fetchImages(); // busca ao montar
+    const interval = setInterval(fetchImages, 300000); // atualiza a cada 5 minutos
     return () => clearInterval(interval);
   }, []);
 
@@ -47,17 +114,14 @@ export default function LivePhotoGrid({ initialImages }: { initialImages: BlobFi
         const label = timestamp ? new Date(timestamp).toLocaleString() : "Data desconhecida";
 
         return (
-              <div key={img.url} className="border rounded shadow">
-              <Image
-                src={img.url}
-                alt="Foto da ESP32-CAM"
-                width={400}
-                height={300}
-                className="w-full object-cover"
-                style={{ width: "100%", height: "auto" }}
-              />
-              <p className="text-xs text-center p-1">{label}</p>
-              </div>
+          <div key={img.url} className="border rounded shadow">
+            <Image
+              src={img.url}
+              alt="Foto da ESP32-CAM"
+              style={{ width: "100%", height: "auto" }}
+            />
+            <p className="text-xs text-center p-1">{label}</p>
+          </div>
         );
       })}
     </div>
