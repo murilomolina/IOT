@@ -18,23 +18,25 @@ const Footer = () => {
         </div>
 
         {/* Navegação */}
-        <nav className="flex flex-col md:flex-row gap-3 md:gap-6 text-center">
+        <nav className="flex flex-col md:flex-row items-center gap-3 md:gap-6 text-center">
+
           <Link href="#home" className="text-gray-300 hover:text-blue-500 transition">Home</Link>
           <Link href="#about" className="text-gray-300 hover:text-blue-500 transition">Sobre</Link>
           <Link href="#projetos" className="text-gray-300 hover:text-blue-500 transition">Projetos</Link>
-          {/* <Link href="#contato" className="text-gray-300 hover:text-blue-500 transition">Contato</Link> */}
+          <Link href="https://murilomolina.vercel.app" target='_blank' className="text-gray-300 hover:text-blue-500 transition">Portfolio</Link>
+          <Link href='/dashboard' className="text-gray-300 hover:text-blue-500 transition">Dashboard</Link>
         </nav>
 
         {/* Socials */}
         <div className="flex gap-4">
-          <Link href="https://twitter.com" target="_blank">
-            <Image src="/assets/images/file.svg" alt="Twitter" width={24} height={24} className="hover:scale-110 transition" />
+          <Link href="https://github.com/murilomolina/" target="_blank">
+            <Image src="/assets/images/github.svg" alt="github" width={24} height={24} className="hover:scale-110 transition" />
           </Link>
-          <Link href="https://facebook.com" target="_blank">
+          {/* <Link href="https://facebook.com" target="_blank">
             <Image src="/assets/images/file.svg" alt="Facebook" width={24} height={24} className="hover:scale-110 transition" />
-          </Link>
-          <Link href="https://instagram.com" target="_blank">
-            <Image src="/assets/images/file.svg" alt="Instagram" width={24} height={24} className="hover:scale-110 transition" />
+          </Link> */}
+          <Link href="https://www.instagram.com/murilomolina_/" target="_blank">
+            <Image src="/assets/images/instagram.svg" alt="Instagram" width={24} height={24} className="hover:scale-110 transition" />
           </Link>
         </div>
       </div>

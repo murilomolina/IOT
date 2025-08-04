@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'blog.eletrogate.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'encrypted-tbn0.gstatic.com',
+      },
+      {
+        protocol: 'https',
         hostname: `${process.env.BLOB_KEY}.public.blob.vercel-storage.com`,
       },
     ],

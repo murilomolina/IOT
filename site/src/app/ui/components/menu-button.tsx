@@ -26,7 +26,7 @@ export default function MenuButton() {
       <div className="hidden md:flex gap-6 text-white text-sm font-normal">
         <Link href="#inicio" className="hover:text-white transition">Início</Link>
         <Link href="#main-projects" className="hover:text-white transition">Principais Projetos</Link>
-        <Link href="/contato" className="hover:text-white transition">Contato</Link>
+        <Link href="https://murilomolina.vercel.app" target="_blank" className="hover:text-white transition">Portfolio</Link>
         <Link href="/dashboard" className="hover:text-white transition">Dashboard</Link>
       </div>
     </div>
