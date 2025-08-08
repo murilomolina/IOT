@@ -21,29 +21,31 @@
 //   });
 // }
 
-
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabaseClient';
-
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const device = body.device;
   const ip = body.ip;
 
-  if (!ip && !device) {
-    return new NextResponse('IP não fornecido', { status: 400 });
+  if (!ip || !device) {
+    return new NextResponse('IP ou device não fornecido', { status: 400 });
   }
 
+  console.log('Salvando no banco:', { ip, device });
 
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('address')
-    .upsert([{ ip: ip, name: device }]);
+    .upsert([{ ip: ip, name: device }])
+    .select();
 
   if (error) {
     console.error('Erro ao inserir no Supabase:', error);
     return new NextResponse('Erro ao salvar no banco de dados', { status: 500 });
   }
+
+  console.log('Registro salvo:', data);
 
   return new NextResponse('IP recebido e salvo com sucesso', { status: 200 });
 }
