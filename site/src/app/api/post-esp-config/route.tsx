@@ -1,31 +1,26 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { ip } = req.query;
-  if (!ip || typeof ip !== 'string') {
-    return res.status(400).json({ error: 'IP inválido' });
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Método não permitido' });
-  }
-
+export async function POST(req: Request) {
   try {
+    const { ip, ...config } = await req.json();
+
+    if (!ip || typeof ip !== 'string') {
+      return new Response(JSON.stringify({ error: 'IP inválido' }), { status: 400 });
+    }
+
     const response = await fetch(`http://${ip}/config`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(req.body),
+      body: JSON.stringify(config),
     });
 
     const text = await response.text();
 
     if (!response.ok) {
-      return res.status(response.status).json({ error: text });
+      return new Response(JSON.stringify({ error: text }), { status: response.status });
     }
 
-    res.status(200).send(text);
+    return new Response(text, { status: 200 });
   } catch (error) {
     console.error('Erro no proxy:', error);
-    res.status(500).json({ error: 'Erro no proxy' });
+    return new Response(JSON.stringify({ error: 'Erro no proxy' }), { status: 500 });
   }
 }
