@@ -9,7 +9,7 @@ export default function ConfigPage() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [ip, setIp] = useState(''); // estado string para IP
+  const [ip, setIp] = useState(''); // IP do dispositivo
 
   useEffect(() => {
     async function fetchLastIp() {
@@ -23,7 +23,6 @@ export default function ConfigPage() {
         console.error('Erro ao buscar último IP:', error);
       }
     }
-
     fetchLastIp();
   }, []);
 
@@ -36,10 +35,10 @@ export default function ConfigPage() {
     const config = { camServer, uploadAPI, sdCard, ledESP };
 
     try {
-      const res = await fetch(`http://${ip}/config`, {
+      const res = await fetch('/api/post-esp-config', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(config),
+        body: JSON.stringify({ ip, config }),
       });
 
       const text = await res.text();
@@ -138,7 +137,7 @@ export default function ConfigPage() {
 
       {message && (
         <p
-          className={`mt-4 text-center font-semibold ${
+          className={`mt-4 text-center font-semibold overflow-hidden ${
             error ? 'text-red-400' : 'text-green-400'
           }`}
         >
