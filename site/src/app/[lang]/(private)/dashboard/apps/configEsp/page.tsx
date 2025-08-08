@@ -35,7 +35,7 @@ export default function ConfigPage() {
     const config = { camServer, uploadAPI, sdCard, ledESP };
 
     try {
-      const res = await fetch('/api/post-esp-config', {
+      const res = await fetch(`/api/post-esp-config?ip=${ip}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ip, config }),
