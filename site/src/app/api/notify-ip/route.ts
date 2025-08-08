@@ -25,8 +25,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabaseClient';
 
-let lastReceivedIP: string | null = null;
-let lastReceivedDevice: string | null = null;
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
@@ -37,16 +35,10 @@ export async function POST(req: NextRequest) {
     return new NextResponse('IP não fornecido', { status: 400 });
   }
 
-  // Armazenar o IP na variável
-  lastReceivedIP = ip;
 
-  // Armazenar o dispositivo na variável
-  lastReceivedDevice = device;
-
-  // Inserir o IP no banco de dados Supabase
   const { error } = await supabase
     .from('address')
-    .upsert([{ ip: ip, name: device }]); // Insere ou atualiza IP e nome do dispositivo
+    .upsert([{ ip: ip, name: device }]);
 
   if (error) {
     console.error('Erro ao inserir no Supabase:', error);
@@ -54,11 +46,4 @@ export async function POST(req: NextRequest) {
   }
 
   return new NextResponse('IP recebido e salvo com sucesso', { status: 200 });
-}
-
-export async function GET() {
-  return new NextResponse(lastReceivedIP ?? '', {
-    status: 200,
-    headers: { 'Content-Type': 'text/plain' },
-  });
 }
