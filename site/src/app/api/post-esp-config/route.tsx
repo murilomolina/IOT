@@ -1,3 +1,4 @@
+'use client';
 export async function POST(req: Request) {
   try {
     const { ip, ...config } = await req.json();
