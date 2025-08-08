@@ -80,7 +80,7 @@ export default function CameraPage() {
       setIp(data.ips?.[0] || null);
     })
     .catch(console.error);
-}, []);
+  }, []);
 
 
 

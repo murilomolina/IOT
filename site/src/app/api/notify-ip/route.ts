@@ -26,22 +26,27 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabaseClient';
 
 let lastReceivedIP: string | null = null;
+let lastReceivedDevice: string | null = null;
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
+  const device = body.device;
   const ip = body.ip;
 
-  if (!ip) {
+  if (!ip && !device) {
     return new NextResponse('IP não fornecido', { status: 400 });
   }
 
   // Armazenar o IP na variável
   lastReceivedIP = ip;
 
+  // Armazenar o dispositivo na variável
+  lastReceivedDevice = device;
+
   // Inserir o IP no banco de dados Supabase
-  const {  error } = await supabase
+  const { error } = await supabase
     .from('address')
-    .upsert([{ esp_cam: ip }]);  // Aqui insere ou atualiza
+    .upsert([{ ip: ip, name: device }]); // Insere ou atualiza IP e nome do dispositivo
 
   if (error) {
     console.error('Erro ao inserir no Supabase:', error);

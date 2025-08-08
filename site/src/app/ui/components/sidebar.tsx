@@ -37,7 +37,7 @@ export default function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose:
             { name: "Início", href: "/" },
             { name: "Principais Projetos", href: "#main-projects" },
             // { name: "Projetos", href: "#projetos" },
-            { name: "Contato", href: "/contato" },
+            { name: "Portfolio", href: "https://murilomolina.vercel.app" },
             { name: "Dashboard", href: "/dashboard" },
           ].map((link) => (
             <Link
