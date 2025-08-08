@@ -10,14 +10,14 @@ async function getUserByEmail(email: string) {
     const { data, error } = await supabase
       .from("user")
       .select("*")
-      .eq("email", email)
+      .eq("email", email);
 
     if (error) {
       console.error("Erro ao buscar usuário:", error);
       return null;
     }
 
-    return data;
+    return data.length > 0 ? data[0] : null;
   } catch (err) {
     console.error("Erro inesperado ao buscar usuário:", err);
     return null;
@@ -53,18 +53,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           console.log("Usuário sem e-mail, acesso negado.");
           return false;
         }
-    
+
         const userData = await getUserByEmail(user.email);
-    
+
         if (!userData) {
           console.log(`Acesso negado para: ${user.email}, usuário não encontrado no banco.`);
-          return false;
+          return false;  // bloqueia acesso
         }
-    
+
         console.log(`Usuário autorizado: ${user.email}`);
       }
-    
-      return true;
+
+      return true; // permite acesso
     },
     
     authorized({ auth, request: { nextUrl, headers } }) {
