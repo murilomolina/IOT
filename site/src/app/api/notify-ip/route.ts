@@ -26,18 +26,18 @@ import { supabase } from '@/lib/supabaseClient';
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const device = body.device;
+  const name = body.name;
   const ip = body.ip;
 
-  if (!ip || !device) {
-    return new NextResponse('IP ou device não fornecido', { status: 400 });
+  if (!ip || !name) {
+    return new NextResponse('IP ou name não fornecido', { status: 400 });
   }
 
-  console.log('Salvando no banco:', { ip, device });
+  console.log('Salvando no banco:', { ip, name });
 
   const { data, error } = await supabase
     .from('address')
-    .upsert([{ ip: ip, name: device }])
+    .upsert([{ ip: ip, name: name }])
     .select();
 
   if (error) {
